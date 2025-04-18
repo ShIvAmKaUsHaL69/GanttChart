@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gantt Chart Tool</title>
+    <!-- Frappe Gantt CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-gantt@1.0.3/dist/frappe-gantt.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Frappe Gantt JS -->
+    <script src="https://cdn.jsdelivr.net/npm/frappe-gantt@1.0.3/dist/frappe-gantt.min.js"></script>
+    <!-- Fallback initialization -->
+    <script>
+      window.addEventListener('load', function() {
+        // Check if Gantt initialization failed
+        setTimeout(function() {
+          const container = document.querySelector('.gantt-container');
+          if (container && !document.querySelector('.gantt-container svg') && !document.querySelector('.fallback-gantt')) {
+            console.log('Gantt initialization appears to have failed, refreshing...');
+            window.location.reload();
+          }
+        }, 3000);
+      });
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
